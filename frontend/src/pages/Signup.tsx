@@ -43,7 +43,7 @@ export const Signup = () => {
                     password,
                   },
                 });
-                localStorage.setItem("token", response.data.token);
+                localStorage.setItem("token", response.data.jwt);
                 navigate("/blog");
               }}
               label={"Sign up"}
