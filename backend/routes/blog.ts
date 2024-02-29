@@ -87,6 +87,15 @@ blogRouter.put("/blog", async (c) => {
   return c.text("updated post");
 });
 
+blogRouter.delete("/blog", async (c) => {
+  const prisma = new PrismaClient({
+    datasourceUrl: c.env.DATABASE_URL,
+  }).$extends(withAccelerate());
+
+  const post = await prisma.post.deleteMany({});
+  return c.json(post);
+});
+
 blogRouter.get("/blog/:id", async (c) => {
   const id = c.req.param("id");
   const prisma = new PrismaClient({
@@ -103,6 +112,16 @@ blogRouter.get("/blog", async (c) => {
     datasourceUrl: c.env.DATABASE_URL,
   }).$extends(withAccelerate());
 
-  const post = await prisma.post.findMany({});
+  const post = await prisma.post.findMany({
+    select: {
+      title: true,
+      content: true,
+      author: {
+        select: {
+          email: true,
+        },
+      },
+    },
+  });
   return c.json(post);
 });
