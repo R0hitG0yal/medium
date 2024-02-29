@@ -1,5 +1,4 @@
 export function InputBox({
-  label,
   placeholder,
   onChange,
 }: {
@@ -8,12 +7,11 @@ export function InputBox({
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }) {
   return (
-    <div>
-      <div className="text-sm font-medium text-left py-2">{label}</div>
+    <div className="px-16 py-4">
       <input
         onChange={onChange}
         placeholder={placeholder}
-        className="w-full px-2 py-1 border rounded border-slate-200"
+        className="w-full px-2 py-1 no-border rounded focus:border-white"
       />
     </div>
   );

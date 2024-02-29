@@ -1,36 +1,42 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+
+interface author {
+  email: string;
+}
 
 interface Article {
   title: string;
-  author: string;
-  date: string;
+  author: author;
+  content: string;
 }
 
 const ArticleList: React.FC = () => {
-  const articles: Article[] = [
-    {
-      title: "The Future of AI",
-      author: "John Doe",
-      date: "January 1st, 2021",
-    },
-    {
-      title: "How to Build a Successful Startup",
-      author: "Jane Smith",
-      date: "February 1st, 2021",
-    },
-  ];
+  const [articles, setArticles] = useState<Article[]>([]);
+
+  useEffect(() => {
+    async function getArticles() {
+      const res = await axios.get(
+        "https://backend.rgoyal4122.workers.dev/api/v1/blog",
+        {
+          headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        }
+      );
+      setArticles(res.data);
+    }
+    getArticles();
+  }, []);
 
   return (
-    <ul className="list-none space-y-4">
+    <ul className="list-none space-y-4 px-16 pl-32 pt-2">
       {articles.map((article) => (
         <li key={article.title}>
           <a href="#" className="block bg-white rounded-md shadow-sm p-4">
-            <span className="font-semibold block truncate">
+            <span className="font-thin block truncate">by {article.author.email}</span>
+            <span className="font-bold block truncate text-xl py-2">
               {article.title}
             </span>
-            <span className="block truncate">
-              by {article.author}, {article.date}
-            </span>
+            <span className="font-light block truncate">{article.content}</span>
           </a>
         </li>
       ))}
