@@ -9,7 +9,7 @@ const Header: React.FC<buttonStr> = ({ label, onClick }) => {
     <header className="bg-white shadow">
       <nav className="container mx-auto px-4 py-4 flex justify-between">
         <a
-          href="#"
+          href="../blog"
           className="text-gray-900 font-bold text-xl no-underline hover:no-underline focus:no-underline"
         >
           Medium
