@@ -12,6 +12,8 @@ export const Signin = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
+
+  //
   return (
     // <div className="bg-slate-300 h-screen flex justify-center">
     <div className="h-screen bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500">
