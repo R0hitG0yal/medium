@@ -13,9 +13,17 @@ export const Signup = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="bg-slate-300 h-screen flex justify-center">
-      <div className="flex flex-col justify-center">
-        <div className="rounded-lg bg-white w-80 text-center p-2 h-max px-4">
+    <div className="h-screen bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500">
+      <div className="flex justify-center items-center w-full h-screen">
+        <div className="text-5xl font-sans font-extrabold pl-32 w-1/2 ">
+          Elevate Your Digital Presence
+          <br></br>
+          <span className="text-xl font-normal text-purple-300   ">
+            Unlock the power of our cutting-edge platform and transform your
+            online experience.
+          </span>
+        </div>
+        <div className="rounded-lg w-1/2 text-center p-2 h-max px-32">
           <Heading label={"Sign up"} />
           <SubHeading label={"Enter your infromation to create an account"} />
           <InputBox
