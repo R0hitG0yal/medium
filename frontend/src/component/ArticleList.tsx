@@ -28,7 +28,7 @@ const ArticleList: React.FC = () => {
   }, []);
 
   return (
-    <ul className="list-none space-y-4 px-16 pl-32 pt-2">
+    <ul className="list-none space-y-4 md:px-16 md:pl-32 pt-2">
       {articles.map((article) => (
         <li key={article.title}>
           <a href="#" className="block bg-white rounded-md shadow-sm p-4">

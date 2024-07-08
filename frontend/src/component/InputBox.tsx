@@ -7,7 +7,7 @@ export function InputBox({
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }) {
   return (
-    <div className="px-16 py-4">
+    <div className="px-8 pb-4">
       <input
         onChange={onChange}
         placeholder={placeholder}

@@ -9,7 +9,7 @@ const AddPost: React.FC = () => {
   const [title, setTitle] = useState<string>("");
   const [content, setContent] = useState<string>("");
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="relative flex flex-col min-h-screen">
       <Header
         label="Publish"
         onClick={async () => {
@@ -28,7 +28,7 @@ const AddPost: React.FC = () => {
           console.log(res.data);
         }}
       />
-      <div className="flex flex-col lg:flex-row">
+      <div className="flex flex-col lg:flex-row mt-4">
         <div className="lg:w-3/4">
           <InputBox
             label="title"
@@ -45,7 +45,7 @@ const AddPost: React.FC = () => {
             }}
           />
         </div>
-        <div className="lg:w-1/4">
+        <div className="absolute bottom-12 w-screen lg:w-1/4 lg:top-10 lg:right-0">
           <Sidebar />
         </div>
       </div>
